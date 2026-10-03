@@ -23,22 +23,22 @@ vecino(Casitas, [_, _, noruego, _, _, _], [_, azul, _, _, _, _]),
 % 2. El que vive en la casa del centro toma leche.
 member([3,_,_,leche,_,_], Casitas),
 
-% 3. El inglÈs vive en la casa roja.
+% 3. El ingl√©s vive en la casa roja.
 member([_,roja,ingles,_,_,_],Casitas),
 
 % 4. La mascota del Sueco es un perro.
 member([_,_,sueco,_,perro,_],Casitas),
 
-% 5. El DanÈs bebe tÈ.
+% 5. El Dan√©s bebe t√©.
 member([_,_,danes,te,_,_],Casitas),
 
 % 6. La casa verde es a la izquierda de la casa blanca.
 vecino_izq(Casitas,[_,verde,_,_,_,_],[_,blanca,_,_,_,_]),
 
-% 7. El de la casa verde toma cafÈ.
+% 7. El de la casa verde toma caf√©.
 member([_,verde,_,cafe,_,_],Casitas),
 
-% 8. El que fuma PallMall crÌa p·jaros.
+% 8. El que fuma PallMall cr√≠a p√°jaros.
 member([_,_,_,_,pajaros,pallmall],Casitas),
 
 % 9. El de la casa amarilla fuma Dunhill.
@@ -53,7 +53,7 @@ vecino(Casitas,[_,_,_,_,caballos,_],[_,_,_,_,_,dunhill]),
 % 12. El que fuma BlueMaster bebe cerveza.
 member([_,_,_,cerveza,_,bluemaster],Casitas),
 
-% 13. El alem·n fuma Prince.
+% 13. El alem√°n fuma Prince.
 member([_,_,aleman,_,_,prince],Casitas),
 
 % 14. El que fuma Blend tiene un vecino que bebe agua.
@@ -62,16 +62,16 @@ member([_, _, _, _, peces, _], Casitas),
 member([_, _, _, agua, _, _], Casitas).
 
 color(Persona,Color):-posicasa(Casitas),
-† † member([_,Color,Persona,_,_,_],Casitas).
+    member([_,Color,Persona,_,_,_],Casitas).
 
 bebida(Persona,Bebida):-posicasa(Casitas),
-† † member([_,_,Persona,Bebida,_,_],Casitas).
+    member([_,_,Persona,Bebida,_,_],Casitas).
 
 fuma(Persona,Fuma):-posicasa(Casitas),
-† † member([_,_,Persona,_,_,Fuma],Casitas).
+    member([_,_,Persona,_,_,Fuma],Casitas).
 
 mascota(Persona,Mascota):-posicasa(Casitas),
-† † member([_,_,Persona,_,Mascota,_],Casitas).
+    member([_,_,Persona,_,Mascota,_],Casitas).
 
 numero(Persona,Numero):-posicasa(Casitas),
-† † member([Numero,_,Persona,_,_,_],Casitas).
+    member([Numero,_,Persona,_,_,_],Casitas).
