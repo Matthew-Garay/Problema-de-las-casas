@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+
+      - name: Verificar archivo Prolog
+        run: |
+          test -f problemascasas3.pl && echo "problemascasas3.pl presente" || echo "Falta problemascasas3.pl"
+          test -f README.md && echo "README.md presente" || echo "Falta README.md"
