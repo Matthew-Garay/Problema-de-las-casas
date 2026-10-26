@@ -1,79 +1,60 @@
-﻿# Problema de las Casas (Acertijo de Einstein)
+# Problema de las Casas Acertijo de Einstein
 
-<p align="center">
-  <a href="https://github.com/Matthew-Garay/Problema-de-las-casas/actions/workflows/ci.yml"><img src="https://github.com/Matthew-Garay/Problema-de-las-casas/actions/workflows/ci.yml/badge.svg" alt="CI Status"/></a>
-  <a href="https://github.com/Matthew-Garay/Problema-de-las-casas/security/dependabot"><img src="https://img.shields.io/badge/Dependabot-enabled-blue?style=flat-square&logo=github&labelColor=555555" alt="Dependabot"/></a>
-</p>
+## A. Titulo del Proyecto y Resumen Ejecutivo
 
-Resolucion del acertijo de las cinco casas (tambien conocido como el Acertijo de Einstein o Zebra Puzzle) en Prolog. Cinco vecinos, cinco colores, cinco nacionalidades, cinco mascotas, cinco bebidas y cinco cigarros, con 14 pistas que dejan una unica solucion.
+Problema de las Casas es una implementacion en Prolog del acertijo de las cinco casas, tambien conocido como Acertijo de Einstein o Zebra Puzzle. El sistema modela cinco vecinos, cinco colores, cinco nacionalidades, cinco mascotas, cinco bebidas y cinco cigarros, con 14 pistas logicas que dejan una unica solucion valida. Cada pista se traduce a una restriccion sobre la lista de casas y el motor de busqueda de Prolog encuentra la asignacion unica que satisface todas las restricciones. Su alcance tecnologico se limita a la ejecucion local en SWI-Prolog, sin componentes de red ni persistencia de datos.
 
-Cada pista se traduce a una restriccion sobre la lista `Casitas`; el motor de busqueda de Prolog encuentra la unica asignacion que satisface todas las restricciones.
+## B. Arquitectura del Sistema
 
-## Stack tecnologico
+El programa sigue una arquitectura de programacion logica basada en resolucion por restricciones. El flujo de datos comienza con la definicion de las 14 pistas del acertijo traducidas a restricciones logicas sobre la lista de casas. El motor de busqueda con backtracking de Prolog explora el espacio de asignaciones posibles, probando combinaciones y retrocediendo cuando una restriccion no se satisface, hasta encontrar la unica asignacion valida que cumple todas las condiciones. Finalmente, el programa imprime la solucion completa en consola con la asignacion de color, nacionalidad, mascota, bebida y cigarro para cada una de las cinco casas. No existe arquitectura cliente-servidor ni capas de persistencia.
 
-- **Lenguaje:** SWI-Prolog
-- **Paradigma:** Programacion logica, resolucion por restricciones
-- **Entorno:** SWI-Prolog 8.x
+## C. Caracteristicas Tecnicas Clave
 
-## Arquitectura
+- Resolucion del acertijo de las cinco casas con 14 pistas logicas.
+- Modelado de restricciones utilizando predicados de Prolog.
+- Busqueda con backtracking para encontrar la solucion unica.
+- Asignacion de cinco atributos por casa: color, nacionalidad, mascota, bebida y cigarro.
+- Codigo modular y documentado.
+- No utiliza base de datos, ni concurrencia, ni procesamiento en tiempo real, ni protocolos de red.
+- Seguridad limitada al ambito de ejecucion local; no maneja datos sensibles ni autenticacion.
 
-```mermaid
-graph TD
-    A[Pistas del acertijo] --> B[Restricciones en Prolog]
-    B --> C[Motor de busqueda con backtracking]
-    C --> D[Solucion unica de las 5 casas]
-    D --> E[Asignacion: color, nacionalidad, mascota, bebida, cigarro]
-    
-    style A fill:#e1f5fe,stroke:#01579b
-    style B fill:#fff3e0,stroke:#e65100
-    style C fill:#e8f5e9,stroke:#1b5e20
-    style D fill:#f3e5f5,stroke:#4a148c
-    style E fill:#ffe0b2,stroke:#ef6c00
+## D. Especificacion del Stack Tecnologico
+
+| Categoria | Tecnologia / Librería |
+|-----------|----------------------|
+| Lenguaje | SWI-Prolog 8.x |
+| Paradigma | Programacion logica, resolucion por restricciones |
+| Entorno | SWI-Prolog 8.x |
+
+## E. Guia de Instalacion, Configuracion y Despliegue
+
+### Requisitos previos del sistema
+
+- SWI-Prolog 8.x instalado en el sistema operativo.
+- Acceso a terminal o consola de comandos.
+
+### Secuencia de comandos para clonacion e instalacion
+
+```bash
+git clone https://github.com/Matthew-Garay/Problema-de-las-casas.git
+cd Problema-de-las-casas
 ```
 
-## Caracteristicas
+### Configuracion de variables de entorno
 
-- Resolucion del acertijo de las cinco casas con 14 pistas logicas
-- Uso de predicados de Prolog para modelar restricciones
-- Busqueda con backtracking para encontrar la solucion unica
-- Codigo modular y documentado
+Este proyecto no requiere archivo .env ni variables de entorno.
 
-## Como ejecutar
+### Comandos para ejecucion en entorno de Desarrollo
 
-### Requisitos previos
-
-- SWI-Prolog 8.x instalado
-
-### Ejecucion
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/Matthew-Garay/Problema-de-las-casas.git
-   cd Problema-de-las-casas
-   ```
-2. Ejecuta el archivo principal con SWI-Prolog:
-   ```bash
-   swipl -s problemascasas3.pl -g "main" -t "halt"
-   ```
-3. El programa muestra la solucion completa del acertijo en consola.
-
-## Estructura del proyecto
-
-```
-Problema-de-las-casas/
-├── problemascasas3.pl       # Codigo fuente en Prolog
-├── Casas.xlsx               # Datos de referencia del acertijo
-├── .gitignore               # Archivos excluidos del control de versiones
-├── LICENSE                  # Licencia MIT
-├── README.md                # Este archivo
-└── docs/                    # Documentacion extendida
-    ├── setup-guide.md       # Guia de instalacion
-    └── architecture.md      # Diagrama de arquitectura
+```bash
+swipl -s problemascasas3.pl -g "main" -t "halt"
 ```
 
-## Contacto
+### Comandos para ejecucion en entorno de Produccion
 
-<p align="center">
-  <a href="mailto:1911.garay.perez@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
-  <a href="https://www.linkedin.com/in/matthewgarayperez/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-</p>
+No aplica entorno de produccion separado; el programa se ejecuta localmente con el mismo comando de desarrollo.
+
+## F. Creditos de Autoría
+
+Desarrollado por: Matthew Ilveneff Garay Pérez
+Correo Electronico: 1911.garay.perez@gmail.com
